@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Data Binding</title>
+        <style>
+            .none {
+                text-decoration: none;
+                color: red;
+            }
+            .image {
+                width: 300px;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <!-- <p>{{name + age}}</p>
+            <p>{{isLike ? 'like' : 'no-liked'}}</p> -->
+            <a :href="url" target="_blank" :class="{none:isActive}">Google</a>
+            <p :style="{color: color}">Style Binding</p>
+            <img :src="src" alt="" class="image">
+        </div>
+        <!-- <div class="some">{{language}}</div> -->
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+        
+        <script>
+            // new Vue({
+            //     el:'#app',
+            //     data: function() {
+            //         return {
+            //             name: 'Phyu',
+            //             age: 18,
+            //             isLike: true
+            //         }
+            //     }
+            // });
+            
+            // new Vue({
+            //     el: '.some',
+            //     data: function() {
+            //         return {
+            //             language: 'English'
+            //         }
+            //     }
+            // });
+
+            new Vue({
+                el: '#app',
+                data: function() {
+                    return {
+                        url: 'https://www.google.com/',
+                        isActive: true,
+                        color: "brown",
+                        src: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fnature-wallpaper&psig=AOvVaw2R499aDeej8sOFX9D8Gvhx&ust=1667626547036000&source=images&cd=vfe&ved=0CA0QjhxqFwoTCIDB0JHnk_sCFQAAAAAdAAAAABAE"
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
