@@ -1,4 +1,4 @@
-# testing
+# shopping
 
 ## Project setup
 ```

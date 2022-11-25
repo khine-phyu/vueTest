@@ -1,34 +1,14 @@
 <template>
     <div>
-        <h1>Welcome to Home {{ userInfo.name }}</h1>
+        <Nav></Nav>
+        <h1>Home views</h1>
     </div>
 </template>
 
 <script>
+import Nav from './Nav.vue'
 export default {
-    name: "home",
-    components: {},
-
-    data() {
-        return {
-            userInfo: {},
-        };
-    },
-
-    created() {
-        // console.log(this.$router.currentRoute.path);
-        this.userInfo = this.$store.state.userInfo;
-        this.$store.watch(
-            () => {
-                return this.$store.state.userInfo;
-            },
-            (newVal, oldVal) => {
-                this.userInfo = newVal;
-            },
-            {
-                deep: true,
-            }
-        );
-    },
+    name: 'Home',
+    components: { Nav },
 }
 </script>

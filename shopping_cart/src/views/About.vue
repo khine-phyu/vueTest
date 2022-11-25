@@ -1,12 +1,14 @@
 <template>
     <div>
-        <h1>Hello About Views</h1>
+        <Nav></Nav>
+        <h1>About views</h1>
     </div>
 </template>
 
 <script>
+import Nav from "./Nav.vue";
 export default {
-    name: "about",
-    components: {},
+    name: 'About',
+    components: { Nav },
 }
 </script>
