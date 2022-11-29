@@ -1,14 +1,15 @@
 <template>
     <div>
-        <Nav></Nav>
-        <h1>About views</h1>
+        <Master>
+            <h1>About views</h1>
+        </Master>        
     </div>
 </template>
 
 <script>
-import Nav from "./Nav.vue";
+import Master from "../layout/Master.vue"
 export default {
     name: 'About',
-    components: { Nav },
+    components: { Master },
 }
 </script>

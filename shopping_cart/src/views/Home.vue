@@ -1,14 +1,21 @@
 <template>
     <div>
-        <Nav></Nav>
-        <h1>Home views</h1>
+        <Master>
+            <!-- Jumbotron -->
+            <div class="p-5 text-center bg-light">
+                <h1 class="mb-3">Hello</h1>
+                <h4 class="mb-3">Subheading</h4>
+                <a class="btn btn-primary" href="" role="button">Call to action</a>
+            </div>
+            <!-- Jumbotron -->
+        </Master>
     </div>
 </template>
 
 <script>
-import Nav from './Nav.vue'
+import Master from '../layout/Master.vue'
 export default {
     name: 'Home',
-    components: { Nav },
+    components: { Master },
 }
 </script>
