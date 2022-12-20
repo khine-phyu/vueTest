@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Array push</title>
+    </head>
+    <body>
+        <p id="demo"></p>
+        <button onclick="myFunction()">Click it to see</button>
+
+        <script>
+            const fruits = ["Banana", "apple", "orange", "pineapple"];
+            document.getElementById("demo").innerHTML = fruits;
+
+            function myFunction() {
+                fruits.push("Mango");
+                document.getElementById("demo").innerHTML = fruits;
+            }
+        </script>
+    </body>
+</html>
