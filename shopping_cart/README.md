@@ -1,4 +1,4 @@
-# shopping
+# test_vue
 
 ## Project setup
 ```

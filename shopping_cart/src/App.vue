@@ -1,19 +1,26 @@
-
-
 <template>
-  <div>
-    <!-- <h1>Hello App Component</h1>
-    <Test name="Testing"></Test> -->
-    <router-view></router-view>
-    <!-- <Master></Master> -->
-  </div>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import Test from '@/components/Test.vue';
-// import Master from '@/layout/Master.vue';
+import HelloWorld from './components/HelloWorld.vue'
+
 export default {
   name: 'App',
-  components: { Test },
+  components: {
+    HelloWorld
+  }
 }
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
