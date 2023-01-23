@@ -7,6 +7,7 @@
 <script>
 export default {
   name: "TodoItem",
+  props: ["title"],
 };
 </script>
 

@@ -5,11 +5,15 @@
   </div>
 </template>
 <script>
+// import Heading from "./Heading";
 import TodoList from "./TodoList";
 export default {
   name: "Todo",
   props: ["title"],
-  components: { TodoList },
+  components: {
+    TodoList,
+    // Heading,
+  },
 };
 </script>
 

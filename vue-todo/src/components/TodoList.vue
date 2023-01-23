@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import Heading from "./Heading";
 import TodoItem from "./TodoItem";
 export default {
   name: "TodoList",
