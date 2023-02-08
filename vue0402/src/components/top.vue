@@ -3,41 +3,6 @@
     <!-- <Heading></Heading> -->
     <div class="inn">
       <div class="mv">
-        <!-- <div id="app"> -->
-        <div class="buttons">
-          <button @click="removeSlide" :disabled="slides <= 2">
-            Remove Slide
-          </button>
-          <button @click="addSlide" :disabled="slides >= 10">Add Slide</button>
-        </div>
-        <div class="slides">
-          <transition-group
-            name="slide"
-            mode="out-in"
-            enter-class="slide-in"
-            leave-class="slide-out"
-            enter-active-class="animated slide-in-active"
-            leave-active-class="animated slide-out-active"
-          >
-            <div v-for="index in slides" v-if="index == active" :key="index">
-              Slide {{ index }}
-            </div>
-          </transition-group>
-        </div>
-        <span class="prev" @click="move(-1)">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        </span>
-        <span class="next" @click="move(1)">
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </span>
-        <ul class="dots">
-          <li
-            v-for="(dot, index) in slides"
-            :class="{ active: ++index === active }"
-            @click="jump(index)"
-          ></li>
-        </ul>
-        <!-- </div> -->
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima
           consequuntur doloribus et autem officiis reiciendis mollitia, quam
@@ -45,38 +10,39 @@
           facilis numquam debitis natus.
         </p>
       </div>
+      <!-- mv -->
+      <!-- slider -->
+      <!-- <div>
+        <VueSlickCarousel :arrows="true" :dots="true">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+        </VueSlickCarousel>
+      </div> -->
+      <!-- slider -->
+
+      <!-- Slider component-->
+      <slider class="mb-5" v-once="v - once" :slides="words"></slider>
+      <!-- Slider component-->
     </div>
   </div>
 </template>
 
 <script>
 // import Heading from "./Heading";
+
+// import VueSlickCarousel from "vue-slick-carousel";
+// import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+// import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
+// Slider component
+
 export default {
   name: "top",
   //   components: {
   //     Heading,
   //   },
-  data: {
-    slides: 5,
-    active: 1,
-  },
-  methods: {
-    move(amount) {
-      let newActive;
-      const newIndex = this.active + amount;
-      if (newIndex > this.slides) newActive = 1;
-      if (newIndex === 0) newActive = this.slides;
-      this.active = newActive || newIndex;
-    },
-    jump(index) {
-      this.active = index;
-    },
-    addSlide() {
-      this.slides = this.slides + 1;
-    },
-    removeSlide() {
-      this.slides = this.slides - 1;
-    },
-  },
 };
 </script>
