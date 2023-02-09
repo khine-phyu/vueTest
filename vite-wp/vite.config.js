@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
@@ -18,16 +18,16 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, '/src'),
+      '@': '/src',
     },
   },
   build: {
     rollupOptions: {
-      input: resolve(__dirname, '/src/main.js'),
+      input: './src/main.js',
       output: {
         entryFileNames: `assets/[name].js`,
         chunkFileNames: `assets/[name].js`,
-        assetFileNames: `assets/[name].[hash].[ext]`,
+        assetFileNames: `assets/[name].[ext]`,
       },
     },
   },
