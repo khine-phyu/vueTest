@@ -1,10 +1,7 @@
 <script setup>
 import { RouterView } from "vue-router";
-// import { WebsiteName } from "@/api/constants.js";
-
-/* header and footer for common  */
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import Header from "@/views/layout/header.vue";
+import Footer from "@/views/layout/footer.vue";
 </script>
 
 <template>
@@ -25,7 +22,7 @@ import Footer from "@/components/Footer.vue";
     </template>
   </RouterView>
   <Footer></Footer>
-</template>
+</template> 
 
-<style scoped lang="scss">
+<style scoped>
 </style>

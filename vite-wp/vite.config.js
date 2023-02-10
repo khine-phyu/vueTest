@@ -1,4 +1,4 @@
-
+import path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
@@ -18,7 +18,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': '/src',
+      '@': './src',
     },
   },
   build: {
@@ -31,14 +31,14 @@ export default defineConfig({
       },
     },
   },
-  configureServer: app => {
-    app.use(
-      require("sass").middleware({
-        src: __dirname,
-        dest: __dirname,
-        outputStyle: "compressed",
-        prefix: "/",
-      })
-    );
-  },
+  // configureServer: app => {
+  //   app.use(
+  //     require("sass").middleware({
+  //       src: __dirname,
+  //       dest: __dirname,
+  //       outputStyle: "compressed",
+  //       prefix: "/",
+  //     })
+  //   );
+  // },
 });
