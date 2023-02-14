@@ -16,7 +16,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <h1>News Posts</h1>
+  <h1>Single Posts</h1>
   <pre>{{ postContent }}</pre>
   <div v-for="posts in postContent">
     <a :href="posts.link">{{ posts.title.rendered }}</a>

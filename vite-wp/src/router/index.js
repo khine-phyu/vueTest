@@ -5,6 +5,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import TopPage from '@/views/page/top.vue'
 import AboutPage from '@/views/page/about.vue'
 import ProfilePage from '@/views/page/profile.vue'
+import Newsarchive from '@/views/archive/news-archive.vue'
+import Singlenews from '@/views/single/single-news.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -23,6 +25,16 @@ const router = createRouter({
             path: '/profile',
             name: 'profile',
             component: ProfilePage,
+        },
+        {
+            path: '/news',
+            name: 'news-archive',
+            component: Newsarchive,
+        },
+        {
+            path: '/news/postId',
+            name: 'single-news',
+            component: Singlenews,
         },
     ],
 });
