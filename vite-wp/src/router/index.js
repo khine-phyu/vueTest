@@ -5,8 +5,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 import TopPage from '@/views/page/top.vue'
 import AboutPage from '@/views/page/about.vue'
 import ProfilePage from '@/views/page/profile.vue'
-import Newsarchive from '@/views/archive/news-archive.vue'
-import Singlenews from '@/views/single/single-news.vue'
+
+//post
+import NewsArchive from '@/views/archive/news-archive.vue'
+import SingleNews from '@/views/single/single-news.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -28,13 +30,13 @@ const router = createRouter({
         },
         {
             path: '/news',
-            name: 'news-archive',
-            component: Newsarchive,
+            name: 'news.archive',
+            component: NewsArchive,
         },
         {
-            path: '/news/postId',
-            name: 'single-news',
-            component: Singlenews,
+            path: '/news/:id',
+            name: 'single.news',
+            component: SingleNews,
         },
     ],
 });

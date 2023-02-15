@@ -9,15 +9,16 @@ export const API = {
         }
     },
     'posts': {
-        'getContent': async (postType) => {
+        'getPosts': async (postType) => {
             const { data } = await axios.get(`http://vue1002.local/wp-json/wp/v2/${postType}`)
+            console.log(data);
             return data
-        }
-    },
-    'single': {
-        'getContent': async (postType) => {
+        },
+        'getPost': async (postType, postId) => {
             const { data } = await axios.get(`http://vue1002.local/wp-json/wp/v2/${postType}/${postId}`)
+            console.log(data);
             return data
+
         }
     }
 }

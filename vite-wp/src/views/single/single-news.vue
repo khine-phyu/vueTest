@@ -1,31 +1,54 @@
-<script setup>
-import { def } from "@vue/shared";
-import { ref, watchEffect } from "vue";
+<!-- <script setup>
+import { ref, watchEffect, onMounted } from "vue";
 import { usePostStore } from "../../stores/post";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const postStore = usePostStore();
-postStore.getContentPost("news");
+postStore.getPost("news", route.params.id);
+console.log("render");
 
-const postContent = ref("");
+const post = ref(null);
+const h3 = ref(null);
 
 watchEffect(() => {
-  if (postStore._posts !== null) {
-    postContent.value = postStore._posts;
-  }
-}, [postStore._posts]);
+  console.log(h3);
+
+  post.value = postStore._post;
+}, [postStore._post]);
 </script>
 
 <template>
-  <h1>Single Posts</h1>
-  <pre>{{ postContent }}</pre>
-  <div v-for="posts in postContent">
-    <a :href="posts.link">{{ posts.title.rendered }}</a>
-    <div v-html="posts.content.rendered"></div>
+  <pre>{{ post }}</pre> -->
+  <!-- <div v-if="post != null">
+    <h3 ref="h3">{{ post.title.rendered }}</h3>
+    <div v-html="post.content.rendered"></div>
   </div>
-</template> 
+  <div v-else>no post found!</div> -->
+<!-- </template> -->
 
-<style scoped>
-ul {
-  list-style-type: none;
-}
-</style>
+<script setup>
+import { ref, watchEffect } from "vue";
+import { usePostStore } from "../../stores/singlepost";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const postStore = usePostStore();
+postStore.getPost("news", route.params.id);
+console.log("Hi there");
+console.log(route.params.id);
+
+const post = ref("");
+
+watchEffect(() => {
+  post.value = postStore._post;
+}, [postStore._post]);
+</script>
+
+<template>
+  <div v-if="post != null">
+    <h3 ref="h3">{{ post.title.rendered }}</h3>
+    <div v-html="post.content.rendered"></div>
+  </div>
+  <div v-else>no post found!</div>
+</template>

@@ -9,15 +9,13 @@ import Footer from "@/views/layout/footer.vue";
   <RouterView v-slot="{ Component }">
     <template v-if="Component">
       <Transition name="fade">
-        <KeepAlive>
-          <Suspense>
-            <!-- main content -->
-            <component :is="Component"></component>
+        <Suspense>
+          <!-- main content -->
+          <component :is="Component"></component>
 
-            <!-- loading state -->
-            <template #fallback> Loading... </template>
-          </Suspense>
-        </KeepAlive>
+          <!-- loading state -->
+          <template #fallback> Loading... </template>
+        </Suspense>
       </Transition>
     </template>
   </RouterView>
