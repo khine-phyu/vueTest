@@ -17,7 +17,7 @@ watchEffect(() => {
 
 <template>
   <h1>News Posts</h1>
-  <!-- <pre>{{ posts }}</pre> -->
+  <pre>{{ posts }}</pre>
   <div v-for="post in posts">
     <a :href="'/news/' + post.id">{{ post.title.rendered }}</a>
     <div v-html="post.content.rendered"></div>
@@ -28,6 +28,8 @@ watchEffect(() => {
         alt=""
       />
     </figure>
+    {{ post.custom_fields.title }}
+    {{ post.custom_fields.description }}
   </div>
 </template> 
 

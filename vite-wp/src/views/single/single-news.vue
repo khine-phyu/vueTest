@@ -35,8 +35,8 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 const postStore = usePostStore();
 postStore.getPost("news", route.params.id);
-console.log("Hi there");
-console.log(route.params.id);
+// console.log("Hi there");
+// console.log(route.params.id);
 
 const post = ref("");
 

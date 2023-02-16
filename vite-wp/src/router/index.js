@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import TopPage from '@/views/page/top.vue'
 import AboutPage from '@/views/page/about.vue'
 import ProfilePage from '@/views/page/profile.vue'
+import ContactPage from '@/views/page/contact.vue'
 
 //post
 import NewsArchive from '@/views/archive/news-archive.vue'
@@ -27,6 +28,11 @@ const router = createRouter({
             path: '/profile',
             name: 'profile',
             component: ProfilePage,
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: ContactPage,
         },
         {
             path: '/news',

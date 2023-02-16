@@ -307,30 +307,51 @@ function get_post_meta_for_api( $object ) {
   return $post_meta;
 }
 
+// function get_image_src_news( $object ) {
+//   $image_id = get_post_thumbnail_image_id();
+//   $image_url = wp_get_attachment_image_src_url($image_id, 'original');
+//   $image_url = $image_url["0"];
+//   return $image_url;
+// } 
+
 //custom field
-add_action( 'rest_api_init', 'adding_user_meta_rest' );
-    /**
-     * Adds user_meta to rest api 'user' endpoint.
-     */
-    function adding_user_meta_rest() {
-        register_rest_field( 'user',
-            'user_meta',
-            array(
-                'get_callback'      => 'user_meta_callback',
-                'update_callback'   => null,
-                'schema'            => null,
-            )
-        );
-    }
-    /**
-     * Return user meta object.
-     *
-     * @param array $user User.
-     * @param string $field_name Registered custom field name ( In this case 'user_meta' )
-     * @param object $request Request object.
-     *
-     * @return mixed
-     */
-    function user_meta_callback( $user, $field_name, $request) {
-        return get_user_meta( $user['id'] );
-    }
+function create_cfs_keys_for_rest_api() {
+  register_rest_field(
+    ['page', 'news'], // add post types or custom taxes in array
+    'custom_fields', // name of the field in the rest
+    array(
+    'get_callback' => 'get_custom_field',
+    'update_callback' => null,
+    'schema' => null
+    )
+  );
+}
+add_action('rest_api_init', 'create_cfs_keys_for_rest_api');
+
+function get_custom_field($object) {
+    $post_id = $object['id'];
+    $post_meta = get_post_meta( $post_id);
+    return $post_meta;
+}
+
+// contact form
+
+// add_action('wp_ajax_my_ajax_shortcode', 'my_ajax_shortcode()');
+// // add_action('wp_ajax_nopriv_my_ajax_shortcode', 'my_ajax_shortcode()');
+// function my_ajax_shortcode() {
+//     echo do_shortcode('[contact-form-7 id="28" title="Contact form 1"]');
+//     die;
+// }
+
+// wpcf7_add_shortcode('custom_date', 'wpcf7_custom_date_shortcode_handler', true);
+
+// function wpcf7_custom_date_shortcode_handler($tag) {
+//     if (!is_array($tag)) return '';
+
+//     $name = $tag['name'];
+//     if (empty($name)) return '';
+
+//     $next_week = date('Y-m-d', time() + (60*60*24*7)); 
+//     $html = '<input type="hidden" name="' . $name . '" value="' . $next_week . '" />';
+//     return $html;
+// }
