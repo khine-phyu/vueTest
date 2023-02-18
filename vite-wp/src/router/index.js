@@ -6,6 +6,7 @@ import TopPage from '@/views/page/top.vue'
 import AboutPage from '@/views/page/about.vue'
 import ProfilePage from '@/views/page/profile.vue'
 import ContactPage from '@/views/page/contact.vue'
+import ConfirmPage from '@/views/page/contact-confirm.vue'
 
 //post
 import NewsArchive from '@/views/archive/news-archive.vue'
@@ -33,6 +34,12 @@ const router = createRouter({
             path: '/contact',
             name: 'contact',
             component: ContactPage,
+        },
+        {
+            path: '/contact/confirm',
+            name: 'contact.confirm',
+            component: ConfirmPage,
+            props: true,
         },
         {
             path: '/news',

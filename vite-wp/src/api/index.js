@@ -7,11 +7,11 @@ export const API = {
             console.log(data);
             return data
         },
-        'getContact': async (pageName) => {
-            const { data } = await axios.get(`http://vue1002.local/wp-json/wp/v2/pages?slug=${pageName}`)
-            console.log(data);
-            return data
-        },
+        // 'getContact': async (pageContactName) => {
+        //     const { data } = await axios.post(`http://vue1002.local/wp-json/wp/v2/pages`)
+        //     console.log(data);
+        //     return data
+        // },
     },
     'posts': {
         'getPosts': async (postType) => {

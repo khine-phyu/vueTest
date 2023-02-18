@@ -1,12 +1,21 @@
 <template>
   <form @submit.prevent="submitForm">
-    <input v-model="name" type="text" name="your-name" placeholder="Name" />
-    <input v-model="email" type="email" name="your-email" placeholder="Email" />
-    <textarea
-      v-model="message"
-      name="your-message"
-      placeholder="Message"
-    ></textarea>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" v-model="name" />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" v-model="email" />
+    </div>
+    <div>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" v-model="subject" />
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" v-model="message"></textarea>
+    </div>
     <button type="submit">Submit</button>
   </form>
 </template>
@@ -19,22 +28,31 @@ export default {
     return {
       name: "",
       email: "",
+      subject: "",
       message: "",
+      isSubmitted: false,
     };
   },
   methods: {
     submitForm() {
+      const data = {
+        name: this.name,
+        email: this.email,
+        subject: this.subject,
+        message: this.message,
+        isSubmitted: true,
+      };
+
       axios
-        .post("/wp-json/contact-form-7/v1/contact-forms/28/feedback", {
-          "your-name": this.name,
-          "your-email": this.email,
-          "your-message": this.message,
-        })
+        // http://vue1002.local/wp-json/contact-form-7/v1/contact-forms/15/feedback
+        .post("http://vue1002.local/api/contact", data)
         .then((response) => {
-          // Handle response
+          console.log(response);
+          // handle success response
         })
         .catch((error) => {
-          // Handle error
+          console.log(error);
+          // handle error response
         });
     },
   },
